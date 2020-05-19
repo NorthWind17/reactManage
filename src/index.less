@@ -1,0 +1,186 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei' 'Segoe UI',
+        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.mainDiv {
+    display: flex;
+    width: 100%;
+    .leftNav {
+        width: 16%;
+        background-color: #c0c0c0;
+        color: #333;
+        font-size: 24px;
+        height: 1000px;
+        padding: 20px;
+    }
+    .rightMain {
+        width: 84%;
+        height: 1000px;
+        background-color: #fff;
+        font-size: 20px;
+    }
+    .topNav {
+        height: 50px;
+        background-color: #cfdefd;
+        ul {
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+            li {
+                padding: 10px;
+                text-align: center;
+                list-style: none;
+            }
+        }
+    }
+}
+
+.videoContent {
+    padding: 20px;
+}
+
+.appIndex {
+    width: 100%;
+    .topNav {
+        width: 100%;
+        color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #242f42;
+        z-index: 99;
+        .navContent {
+            padding: 0 15px;
+            margin: 0 auto;
+            height: 70px;
+            line-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            h3 {
+                color: #fff;
+                font-size: 22px;
+            }
+            .rightName {
+                margin-right: 16px;
+            }
+            .rightLogot {
+                margin-left: 16px;
+            }
+        }
+    }
+    .mainContent {
+        margin-top: 70px;
+        .mainContentLeft {
+            width: 230px;
+            margin-top: 66px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background-color: #324157;
+            color: #fff;
+            overflow: hidden;
+            .ant-menu-dark,
+            .ant-menu-dark .ant-menu-sub {
+                background-color: #324157;
+            }
+        }
+        .mainContentRight {
+            margin-left: 230px;
+            height: 100%;
+        }
+    }
+    .footer {
+        width: 100%;
+        background-color: #409eff;
+        color: #fff;
+        padding: 30px 0;
+        .footerContent {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            .left {
+                p {
+                    font-size: 16px;
+                    line-height: 34px;
+                }
+            }
+            .right {
+                display: flex;
+                justify-content: flex-start;
+                h2 {
+                    text-align: center;
+                    font-weight: 700;
+                    img {
+                        width: 180px;
+                        height: 180px;
+                    }
+                    p {
+                        padding: 4px 0;
+                        font-size: 14px;
+                    }
+                }
+                h2:first-child {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+.hardList {
+    width: 100%;
+    height: 100%;
+    .headerNav {
+        color: #58666e;
+        background-color: #f6f8f8;
+        border-bottom: 1px solid #dee5e7;
+        padding: 10px 20px;
+        position: relative;
+        span {
+            font-size: 18px;
+            font-weight: 300;
+        }
+    }
+    .main {
+        background: #fff;
+        padding: 20px;
+        .mainTop {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            line-height: 40px;
+            > div {
+                width: 40%;
+            }
+            .over {
+                text-align: right;
+                a {
+                    color: red;
+                }
+            }
+            .form-inline {
+                display: flex;
+                justify-content: flex-start;
+                .el-form-item {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
