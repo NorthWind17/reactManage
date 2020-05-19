@@ -14,40 +14,6 @@ const defaultState = {
     list: [],
     hmList: [],
     hmInputValue: '',
-    hmColumns: [
-        {
-            title: '企业名称',
-            dataIndex: 'corp_name',
-            key: 'corp_name',
-            render: (text) => <button>{text}</button>,
-            align: 'center',
-        },
-        {
-            title: '企业ID',
-            dataIndex: 'corp_id',
-            key: 'corp_id',
-            render: (corp_id) => `${corp_id.first} ${corp_id.last}`,
-            align: 'center',
-        },
-        {
-            title: 'D2操作',
-            key: 'Daction',
-            render: () => <button>D2开通</button>,
-            align: 'center',
-        },
-        {
-            title: '扬尘监测操作',
-            key: 'ycaction',
-            render: () => <button>扬尘开通</button>,
-            align: 'center',
-        },
-        {
-            title: '视频监控操作',
-            key: 'saction',
-            render: () => <button>视频开通</button>,
-            align: 'center',
-        },
-    ],
 }; //默认数据
 export default (state = defaultState, action) => {
     //就是一个方法函数
