@@ -42,23 +42,50 @@ export const hardwareManageChangeAction = (value) => ({
     type: HMCHANGE_INPUT,
     value,
 });
-//硬件管理搜索企业按钮
-export const hardwareManageSearchAction = (data) => ({
-    type: GET_HMLIST,
-    data,
-});
+// //硬件管理搜索企业按钮
+// export const hardwareManageSearchAction = (data) => ({
+//     type: GET_HMLIST,
+//     data,
+// });
+// //硬件分页
+// export const hardwareManagePaAction = (data) => ({
+//     type: GET_HMLIST,
+//     data,
+// });
 // 硬件企业列表
 export const getHMListAction = (data) => ({
     type: GET_HMLIST,
     data,
 });
-export const getHMList = () => {
+export const getHMList = (newState) => {
     return (dispatch) => {
-        axios.get('https://zhihui.zzdingyun.com/ding/corplist').then((res) => {
-            const data = res.data;
-            const action = getHMListAction(data);
-            dispatch(action);
-            console.log(data);
-        });
+        console.log('111++' + newState.hmInputValue);
+        axios
+            .post('https://zhihui.zzdingyun.com/ding/corplist', {
+                corp_name: newState.hmInputValue,
+                corp_current: newState.hmCurrent,
+            })
+            .then((res) => {
+                const data = res.data;
+                const action = getHMListAction(data);
+                dispatch(action);
+                console.log(data);
+            });
+        // axios({
+        //     method: 'post',
+        //     url: 'https://zhihui.zzdingyun.com/ding/corplist',
+        //     headers: {
+        //         'Content-type': 'application/json;charset=UTF-8',
+        //     },
+        //     data: {
+        //         corp_name: '',
+        //         current_page: 1,
+        //     },
+        // }).then((res) => {
+        //     const data = res.data;
+        //     const action = getHMListAction(data);
+        //     dispatch(action);
+        //     console.log(res.data);
+        // });
     };
 };

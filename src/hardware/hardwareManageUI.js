@@ -73,8 +73,15 @@ const hardwareUI = (props) => {
                 <div className="mainBottom">
                     <Table
                         columns={hmColumns}
-                        dataSource={props.list}
+                        dataSource={props.hmlist}
                         bordered
+                        pagination={{
+                            position: ['none', 'bottomCenter'],
+                            showQuickJumper: true,
+                            pageSize: 10,
+                            total: props.total,
+                            onChange: props.hardwareManagePa,
+                        }}
                     />
                 </div>
             </div>

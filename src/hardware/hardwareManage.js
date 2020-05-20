@@ -8,10 +8,14 @@ class hardwareManage extends Component {
     constructor(props) {
         super(props);
         this.state = store.getState();
+        // 输入框value
         this.hardwareManageChangeValue = this.hardwareManageChangeValue.bind(
             this
         );
+        // 搜索btn
         this.hardwareManageSearchBtn = this.hardwareManageSearchBtn.bind(this);
+        // 分页
+        this.hardwareManagePa = this.hardwareManagePa.bind(this);
         // this.deleteItem = this.deleteItem.bind(this);
         this.storeChange = this.storeChange.bind(this); //转变this指向
         store.subscribe(this.storeChange); //订阅Redux的状态
@@ -20,11 +24,13 @@ class hardwareManage extends Component {
     render() {
         return (
             <HardwareUI
-                inputValue={this.state.hmInputValue}
-                list={this.state.hmList}
-                columns={this.state.hmColumns}
+                hmInputValue={this.state.hmInputValue}
+                hmlist={this.state.hmList}
+                total={this.state.hmTotal}
+                hmCurrent={this.state.hmCurrent}
                 hardwareManageChangeValue={this.hardwareManageChangeValue}
                 hardwareManageSearchBtn={this.hardwareManageSearchBtn}
+                hardwareManagePa={this.hardwareManagePa}
             />
         );
     }
@@ -33,7 +39,13 @@ class hardwareManage extends Component {
         store.dispatch(action);
     }
     hardwareManageSearchBtn() {
-        const action = getHMList();
+        let that = this;
+        const action = getHMList(that.state);
+        store.dispatch(action);
+    }
+    hardwareManagePa() {
+        let that = this;
+        const action = getHMList(that.state);
         store.dispatch(action);
     }
     // deleteItem(index) {
@@ -41,16 +53,8 @@ class hardwareManage extends Component {
     //     store.dispatch(action);
     // }
     componentDidMount() {
-        // axios
-        //     .get(
-        //         'https://www.easy-mock.com/mock/5e7c4691a123277163210d74/example/getList'
-        //     )
-        //     .then(res => {
-        //         const data = res.data;
-        //         const action = getListAction(data);
-        //         store.dispatch(action);
-        //     });
-        const action = getHMList();
+        let that = this;
+        const action = getHMList(that.state);
         store.dispatch(action);
     }
     storeChange() {

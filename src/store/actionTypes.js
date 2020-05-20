@@ -5,3 +5,4 @@ export const GET_LIST = 'getList';
 export const HMCHANGE_INPUT = 'changeHMInput';
 export const HMSEARCH_BTN = 'searchHMBtn';
 export const GET_HMLIST = 'getHMList';
+export const HM_PA = 'paHM';

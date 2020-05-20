@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     CHANGE_INPUT,
     ADD_ITEM,
@@ -12,8 +11,11 @@ const defaultState = {
     inputValue: 'Write Something',
     // list: ['早上4点起床，锻炼身体', '中午下班游泳一小时', '打游戏']
     list: [],
-    hmList: [],
     hmInputValue: '',
+    hmData: {},
+    hmList: [],
+    hmTotal: '',
+    hmCurrent: '1',
 }; //默认数据
 export default (state = defaultState, action) => {
     //就是一个方法函数
@@ -43,21 +45,25 @@ export default (state = defaultState, action) => {
     // 硬件管理搜索输入框
     if (action.type === HMCHANGE_INPUT) {
         let newState = JSON.parse(JSON.stringify(state)); //深度拷贝state
-        newState.inputValue = action.value;
+        newState.hmInputValue = action.value;
         return newState;
     }
     // 硬件管理搜索按钮
     if (action.type === HMSEARCH_BTN) {
         //根据type值，编写业务逻辑
         let newState = JSON.parse(JSON.stringify(state));
+        newState.hmData = action.data;
         newState.hmList = action.data.content.list;
+        newState.hmTotal = action.data.content.total;
         return newState;
     }
     // 硬件企业列表
     if (action.type === GET_HMLIST) {
         //根据type值，编写业务逻辑
         let newState = JSON.parse(JSON.stringify(state));
+        newState.hmData = action.data;
         newState.hmList = action.data.content.list;
+        newState.hmTotal = action.data.content.total;
         return newState;
     }
     return state;
