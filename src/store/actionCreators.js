@@ -57,20 +57,15 @@ export const getHMListAction = (data) => ({
     type: GET_HMLIST,
     data,
 });
-export const getHMList = (newState) => {
+export const getHMList = (newData, page) => {
+    console.log('444++' + newData.hmCurrent);
     return (dispatch) => {
-        console.log('111++' + newState.hmInputValue);
-        axios
-            .post('https://zhihui.zzdingyun.com/ding/corplist', {
-                corp_name: newState.hmInputValue,
-                corp_current: newState.hmCurrent,
-            })
-            .then((res) => {
-                const data = res.data;
-                const action = getHMListAction(data);
-                dispatch(action);
-                console.log(data);
-            });
+        axios.post('https://zhihui.zzdingyun.com/ding/corplist').then((res) => {
+            const data = res.data;
+            const action = getHMListAction(data, page);
+            dispatch(action);
+            console.log(data);
+        });
         // axios({
         //     method: 'post',
         //     url: 'https://zhihui.zzdingyun.com/ding/corplist',

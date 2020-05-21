@@ -80,6 +80,7 @@ const hardwareUI = (props) => {
                             showQuickJumper: true,
                             pageSize: 10,
                             total: props.total,
+                            current: props.hmCurrent,
                             onChange: props.hardwareManagePa,
                         }}
                     />

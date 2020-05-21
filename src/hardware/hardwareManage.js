@@ -43,9 +43,10 @@ class hardwareManage extends Component {
         const action = getHMList(that.state);
         store.dispatch(action);
     }
-    hardwareManagePa() {
+    hardwareManagePa(page, pageSize) {
         let that = this;
-        const action = getHMList(that.state);
+        pageSize = 10;
+        const action = getHMList(that.state, page);
         store.dispatch(action);
     }
     // deleteItem(index) {

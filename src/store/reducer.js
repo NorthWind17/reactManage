@@ -55,15 +55,19 @@ export default (state = defaultState, action) => {
         newState.hmData = action.data;
         newState.hmList = action.data.content.list;
         newState.hmTotal = action.data.content.total;
+        newState.hmCurrent = action.data.content.current_page;
         return newState;
     }
     // 硬件企业列表
     if (action.type === GET_HMLIST) {
         //根据type值，编写业务逻辑
         let newState = JSON.parse(JSON.stringify(state));
+        console.log('666++' + action.data);
+        console.log('我++' + action.page);
         newState.hmData = action.data;
         newState.hmList = action.data.content.list;
         newState.hmTotal = action.data.content.total;
+        newState.hmCurrent = action.data.content.current_page;
         return newState;
     }
     return state;
